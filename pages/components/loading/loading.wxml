@@ -1,0 +1,6 @@
+<view>
+  <view class="loading">
+    <image style="width: 48rpx;height: 48rpx" src="./loading.gif"/>
+    <view class="desc">数据加载中，请稍后。</view>
+  </view>
+</view>

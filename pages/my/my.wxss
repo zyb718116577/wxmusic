@@ -1,0 +1,60 @@
+.header {
+    position: relative;
+}
+.header .bg-image {
+    width: 100%;
+    height: 400rpx;
+}
+.userinfo-wrapper {
+    position: absolute;
+    margin: auto;
+    width: 128rpx;
+    height: 128rpx;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userinfo-avatar {
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 50%;
+}
+
+.userinfo-nickname {
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+}
+.content {
+    height: 100%;
+    margin-top: 30rpx;
+}
+.content .tab .item{
+    display: flex;
+    font-size: 14px;
+    color: #aaa;
+    padding: 20rpx 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border-bottom: 1rpx solid #333;
+}
+.tab .item .icon ,.tab .item .more {
+    flex: 0 0 60rpx;
+    text-align: center;
+    height: 50rpx;
+    line-height: 60rpx;
+}
+.tab .item .text {
+    flex: 0 0 540rpx;
+}
+.tab .item .icon image,.tab .item .more image ,.tab .item .more .switch{
+    width: 38rpx;
+    height: 38rpx;
+}

@@ -1,0 +1,39 @@
+.progress-bar {
+    height: 30px;
+}
+.progress-bar .bar-inner {
+    position: relative;
+    top: 13px;
+    height: 4px;
+    background: rgba(0,0,0,0.3);
+}
+.progress-bar .bar-inner {
+    position: relative;
+    top: 13px;
+    height: 4px;
+    background: rgba(0,0,0,0.3);
+}
+.progress-bar .bar-inner .progress {
+    position: absolute;
+    height: 100%;
+    background: #ffcd32;
+}
+.progress-bar .bar-inner .progress-btn-wrapper {
+    position: absolute;
+    left: -8px;
+    top: -13px;
+    width: 30px;
+    height: 30px;
+}
+.progress-bar .bar-inner .progress-btn-wrapper .progress-btn {
+    position: relative;
+    top: 7px;
+    left: 7px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background: #ffcd32;
+}

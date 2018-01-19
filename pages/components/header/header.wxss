@@ -1,0 +1,21 @@
+.m-header{
+    position: relative;
+    height: 88rpx;
+    text-align: center;
+    color: #ffcd32;
+    font-size: 0;
+}
+.m-header .icon {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 6rpx;
+    width: 60rpx;
+    height: 64rpx;
+    margin-right: 9px;
+}
+.text {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 88rpx;
+    font-size: 36rpx;
+}

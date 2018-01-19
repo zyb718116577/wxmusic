@@ -1,0 +1,69 @@
+.listview-wrapper {
+    width: 100%;
+    height: 100%;
+}
+.listview {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.listview .list-group {
+    padding-bottom: 60rpx;
+}
+.listview .list-group .list-group-title {
+    height: 60rpx;
+    line-height: 60rpx;
+    padding-left: 40rpx;
+    font-size: 24rpx;
+    color: rgba(255,255,255,0.5);
+    background: #333;
+}
+.listview .list-group .list-group-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 40rpx 0 0 60rpx;
+}
+.listview .list-group .list-group-item .avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+.listview .list-group .list-group-item .name {
+    margin-left: 40rpx;
+    color: rgba(255,255,255,0.5);
+    font-size: 28rpx;
+}
+.listview .loading-container {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.list-shortcut {
+    position: fixed;
+    z-index: 30;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 40rpx;
+    padding: 40rpx 0;
+    border-radius: 20rpx;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    font-family: Helvetica;
+}
+.list-shortcut .item.current {
+    color: #ffcd32;
+}
+.list-shortcut .item {
+  padding: 6rpx;
+  line-height: 1;
+  color: rgba(255,255,255,0.5);
+  font-size: 24rpx;
+}

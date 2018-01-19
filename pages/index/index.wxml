@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<scroll-view class="container" scroll-y>
+  <view class="search-wrapper" bindtap="toSearch">
+    <input class="search" placeholder="输入歌手名、歌曲名搜索" placeholder-style="color: #ffcd32;" disabled placeholder-class="placeholder"/>
+    <i class="icon-search"></i>
+  </view>
+  <view class="slider-wrapper">
+    <my-slider parent="{{is_modal_Msg}}" slider="{{slider}}"></my-slider>
+  </view>
+  <view class="recommend-list">
+    <text class="list-title">热门歌单推荐</text>
+    <view>
+      <view wx:for="{{songList}}" class="item" wx:key="{{item.id}}" bindtap="toSingerPage"
+            data-image="{{item.picUrl}}"
+            data-id="{{item.id}}"
+            data-title="{{item.songListDesc}}">
+        <view class="icon">
+          <image src="{{item.picUrl}}" class="image"/>
+        </view>
+        <view class="text">
+          <view style="margin-bottom: 20rpx">
+            <text class="name" v-html="item.creator.name">{{item.songListAuthor}}</text>
+          </view>
+          <view>
+            <text class="desc" v-html="item.dissname">{{item.songListDesc}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--<view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}哈哈</text>
+  </view>-->
+</scroll-view>

@@ -1,0 +1,8 @@
+<view>
+  <view class="m-header">
+    <view class="icon">
+      <image class="icon" src="./logo@2x.png" background-size="cover"></image>
+    </view>
+    <text class="text">Chicken Music</text>
+  </view>
+</view>

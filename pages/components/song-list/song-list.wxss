@@ -1,0 +1,32 @@
+.song-list .item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 64px;
+    font-size: 14px;
+}
+.song-list .item .content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    line-height: 20px;
+    overflow: hidden;
+}
+.song-list .item .content .name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #fff;
+}
+.song-list .item .content .desc {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 4px;
+    color: rgba(255,255,255,0.3);
+}

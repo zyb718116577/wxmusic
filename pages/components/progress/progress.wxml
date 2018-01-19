@@ -1,0 +1,11 @@
+<view class="progress-bar" id="progressBar" click="progressClick">
+  <view class="bar-inner">
+    <view class="progress" ref="progress" style="width: {{width}}px"></view>
+    <view class="progress-btn-wrapper" ref="progressBtn"
+         touchstart="progressTouchStart"
+         touchmove="progressTouchMove"
+         touchend="progressTouchEnd">
+        <view class="progress-btn" style="transform: translate3d({{width}}px,0,0)"></view>
+    </view>
+    </view>
+</view>

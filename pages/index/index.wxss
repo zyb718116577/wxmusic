@@ -1,0 +1,95 @@
+/**index.wxss**/
+.slider-wrapper{
+  height: 300rpx;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+.usermotto {
+  margin-top: 200px;
+}
+.recommend-list {
+  height: 130rpx;
+  line-height: 130rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #ffcd32;
+}
+.item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 40rpx 40rpx 40rpx;
+}
+.item .icon{
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 120rpx;
+  flex: 0 0 120rpx;
+  width: 120rpx;
+  padding-right: 40rpx;
+}
+.item .icon .image {
+  width: 120rpx;
+  height: 120rpx;
+}
+.item .text{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  line-height: 20px;
+  overflow: hidden;
+  font-size: 28rpx;
+  text-align: left;
+}
+.item .text .name {
+  margin-bottom: 20rpx;
+  color: #fff;
+}
+.item .text .desc {
+  color: rgba(255,255,255,0.3);
+}
+.search-wrapper {
+  padding: 10rpx 30rpx;
+  position: relative;
+}
+.search-wrapper .search {
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+.placeholder {
+  font-size: 12px;
+  text-align: center;
+}
+.search-wrapper .icon-search {
+  position: absolute;
+  right: 40rpx;
+  top: 20rpx;
+}

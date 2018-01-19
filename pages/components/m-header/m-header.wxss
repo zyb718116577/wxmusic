@@ -1,0 +1,61 @@
+.mask_layer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1000;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+}
+.modal_box {
+    width: 76%;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    z-index: 1001;
+    background: #fafafa;
+    margin: -150px 12% 0 12%;
+    border-radius: 3px;
+}
+
+.title {
+    padding: 15px;
+    text-align: center;
+    background-color: gazure;
+}
+
+.content {
+    overflow-y: scroll; /*超出父盒子高度可滚动*/
+}
+
+.btn {
+    width: 100%;
+    margin-top: 65rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.cancel {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: red;
+}
+
+.Sure {
+    width: 100%;
+    padding: 10px;
+    background-color: gainsboro;
+    text-align: center;
+}
+
+.modalMsg {
+    text-align: center;
+    margin-top: 45rpx;
+    display: block;
+}

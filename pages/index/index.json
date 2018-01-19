@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "modal": "../components/m-header/m-header",
+    "header": "../components/header/header",
+    "my-slider": "../components/slider/slider"
+  }
+}

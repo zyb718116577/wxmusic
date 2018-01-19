@@ -1,0 +1,16 @@
+/**app.wxss**/
+@import "./static/stylesheet.wxss"
+page{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  color: #fff;
+  background:#222;
+}
+.container {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  background: #222;
+} 

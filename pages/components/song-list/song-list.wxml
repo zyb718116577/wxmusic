@@ -1,0 +1,10 @@
+<view class="song-list">
+  <view>
+    <view bindtap="selectItem" data-songs="{{songs}}" data-index="{{index}}" wx:for="{{songs}}" wx:key="{{index}}" class="item">
+      <view class="content">
+        <view class="name">{{item.name}}</view>
+        <view class="desc">{{item.singer}}·{{item.album}}</view>
+      </view>
+    </view>
+  </view>
+</view>

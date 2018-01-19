@@ -1,0 +1,79 @@
+<view>
+  <view class="player" v-show="playlist.length>0">
+    <view class="normal-player" wx:if="fullScreen">
+      <view class="background">
+        <image src="{{currentSong.image}}" style="width: 100%"/>
+      </view>
+      <view class="top">
+        <view class="title">{{currentSong.name || '暂无正在播放歌曲'}}</view>
+        <view class="subtitle">{{currentSong.singer}}</view>
+      </view>
+      <swiper class="middle" style="height: 700rpx" bindchange="changeDot">
+        <swiper-item class="middle-l" style="overflow: visible">
+          <view class="cd-wrapper" ref="cdWrapper">
+            <view class="cd {{cdCls}}">
+              <image src="{{currentSong.image}}" alt="" class="image"/>
+            </view>
+          </view>
+          <view class="currentLyricWrapper">{{currentText}}</view>
+        </swiper-item>
+        <swiper-item class="middle-r">
+          <scroll-view class="lyric-wrapper" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation>
+            <view v-if="currentLyric">
+              <view ref="lyricLine"
+                    id="line{{index}}"
+                    class="text {{currentLineNum == index ? 'current': '' }}"
+                    wx:for="{{currentLyric.lines}}">{{item.txt}}
+              </view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+      </swiper>
+      <view class="dots-wrapper">
+        <view class="dots {{currentDot==index?'current':''}}" wx:for="{{dotsArray}}"></view>
+      </view>
+      <view class="bottom">
+        <view class="progress-wrapper">
+          <text class="time time-l">{{currentTime}}</text>
+          <view class="progress-bar-wrapper">
+            <progress-bar percent="{{percent}}"></progress-bar>
+          </view>
+          <text class="time time-r">{{duration}}</text>
+        </view>
+        <view class="operators">
+          <view class="icon i-left">
+            <i class="icon-sequence"></i>
+          </view>
+          <view class="icon i-left">
+            <i class="icon-prev" bindtap="prev"></i>
+          </view>
+          <view class="icon i-center">
+            <i class="{{playIcon}}" bindtap="togglePlaying"></i>
+          </view>
+          <view class="icon i-right">
+            <i class="icon-next" bindtap="next"></i>
+          </view>
+          <view class="icon i-right" bindtap="openList">
+            <i class="icon-playlist"></i>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="content-wrapper {{translateCls}}">
+      <view class="close-list"  bindtap="close"></view>
+      <view class="play-content">
+        <view class="plyer-list-title">播放队列({{songslist.length}}首)</view>
+        <scroll-view class="playlist-wrapper" scroll-y scroll-into-view="list{{currentIndex}}">
+          <view class="item {{index==currentIndex ? 'playing':''}}" wx:for="{{songslist}}" id="list{{index}}"
+                data-index="{{index}}" bindtap="playthis" wx:key="{{index}}">
+            <view class="name">{{item.name}}</view>
+            <view class="play_list__line">-</view>
+            <view class="singer">{{item.singer}}</view>
+            <image class="playing-img" wx:if="{{index==currentIndex}}" src="./playing.gif"/>
+          </view>
+        </scroll-view>
+        <view class="close-playlist" bindtap="close">关闭</view>
+      </view>
+    </view>
+  </view>
+</view>

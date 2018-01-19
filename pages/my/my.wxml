@@ -1,0 +1,51 @@
+<view>
+  <view class="header">
+    <image src="./bg.png" class="bg-image"/>
+    <view class="userinfo-wrapper">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <scroll-view scroll-y class="content">
+    <view class="tab" >
+      <view class="like item">
+        <view class="icon">
+          <i class="icon-not-favorite"></i>
+        </view>
+        <view class="text">我喜欢</view>
+        <view class="more">
+          <image src="./more.png"/>
+        </view>
+      </view>
+      <view class="rencent item">
+        <view class="icon">
+          <image src="./recent.png"/>
+        </view>
+        <view class="text">最近播放</view>
+        <view class="more">
+          <image src="./more.png"/>
+        </view>
+      </view>
+      <view class="setting-wifi item" bindtap="showActionSheets"
+            data-type="{{actionSheetsWifi}}" data-types="wifi">
+        <view class="icon">
+          <image src="./wifi.png"/>
+        </view>
+        <view class="text">仅WiFi联网</view>
+        <view class="more">
+          <image src="./more.png"/>
+        </view>
+      </view>
+      <view class="time item" bindtap="showActionSheets"
+            data-type="{{actionSheetsTime}}" data-types="time">
+        <view class="icon">
+          <image src="./time.png"/>
+        </view>
+        <view class="text">定时关闭</view>
+        <view class="more">
+          <image src="./more.png"/>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

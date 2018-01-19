@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/singer/singer",
+    "pages/singer-detail/singer-detail",
+    "pages/player/player",
+    "pages/my/my"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#222",
+    "navigationBarTitleText": "Chicken Music",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#919191",
+    "selectedColor": "#ffcd32",
+    "backgroundColor": "#333",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "推荐",
+        "iconPath": "static/image/home-1.png",
+        "selectedIconPath": "static/image/home-2.png"
+      },{
+        "pagePath": "pages/player/player",
+        "text": "正在播放",
+        "iconPath": "static/image/rank-1.png",
+        "selectedIconPath": "static/image/rank-2.png"
+      },{
+        "pagePath": "pages/singer/singer",
+        "text": "音乐厅",
+        "iconPath": "static/image/singer-1.png",
+        "selectedIconPath": "static/image/singer-2.png"
+      },{
+        "pagePath": "pages/my/my",
+        "text": "我",
+        "iconPath": "static/image/my.png",
+        "selectedIconPath": "static/image/my-1.png"
+      }
+    ]
+  }
+}

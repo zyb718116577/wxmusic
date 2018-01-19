@@ -1,0 +1,3 @@
+<view>
+  <music-list title="{{title}}" image="{{image}}" songs="{{songs}}"></music-list>
+</view>

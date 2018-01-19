@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "song-list": "../components/song-list/song-list",
+    "progress-bar": "../components/progress/progress"
+  }
+}

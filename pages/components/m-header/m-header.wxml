@@ -1,0 +1,12 @@
+<view hidden='{{modalHidden}}'>
+  <view class='modal_box'>
+    <view class="title">提示</view>
+    <view class='content'>
+      <text class='modalMsg'>{{modalMsg}}</text>
+    </view>
+    <view class='btn'>
+      <view bindtap='modal_click_Hidden' class='cancel'>取消</view>
+      <view bindtap='Sure' class='Sure'>确定</view>
+    </view>
+  </view>
+</view>

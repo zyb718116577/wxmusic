@@ -1,0 +1,24 @@
+<view class="music-list">
+  <view class="title" v-html="title"></view>
+  <view class="bg-image" style="{{bgStyle}};transform:{{scale}};z-index: {{bgZindex}}" id="bgImage" >
+    <view class="play-wrapper" style="z-index: {{zIndex}}">
+      <view class="play" wx:if="{{songs.length > 0}}" bindtap="randomPlayall">
+        <i class="icon-play"></i>
+        <view class="text">随机播放全部</view>
+      </view>
+    </view>
+    <view class="filter" ref="filter"></view>
+  </view>
+  <view class="bg-layer" ref="layer" style="{{translate}}"></view>
+  <view class="scroll-wrapper">
+    <scroll-view class="list" id="musiclist" bindscroll="scroll"
+                 style="top:{{top}}px" scroll-y >
+      <view class="song-list-wrapper">
+        <song-list select="selectItem" songs="{{songs}}"></song-list>
+      </view>
+      <view class="loading-container" wx:if="{{!songs.length}}">
+        <loading></loading>
+      </view>
+    </scroll-view>
+  </view>
+</view>

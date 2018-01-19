@@ -1,0 +1,41 @@
+<view class="listview-wrapper">
+  <scroll-view class="listview"
+     scroll-y style="height: 100%"
+     bindscroll="scroll"
+     scroll-into-view="view{{toView}}">
+    <view>
+      <view wx:for="{{singerlist}}"
+            class="list-group"
+            wx:key="{{index}}"
+            id="view{{index}}">
+        <view class="list-group-title">{{item.title}}</view>
+        <view>
+          <view wx:for="{{item.items}}" class="list-group-item"
+                wx:key="{{index}}"
+                data-singer="{{item}}"
+                catch:tap="toSingerDetail">
+            <image src="{{item.avatar}}" class="avatar"/>
+            <text class="name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--<div class="list-fixed" v-show="fixedTitle" ref="fixed">
+      <div class="fixed-title">{{fixedTitle}}</div>
+    </div>-->
+    <view class="loading-container" wx:if="{{!singerlist.length}}">
+      <loading></loading>
+    </view>
+  </scroll-view>
+  <view class="list-shortcut" touchstart-stop-prevent="onShortcutTouchStart"
+        touchmove-stop-prevent="onShortcutTouchMove">
+    <view>
+      <view class="item {{currentIndex==index?'current':''}}" wx:for="{{shortcutList}}" wx:key="{{index}}"
+            data-index="{{index}}"
+            bindtap="shortcutListTap">
+        {{item}}
+      </view>
+    </view>
+  </view>
+</view>
