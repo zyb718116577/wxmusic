@@ -12,3 +12,4 @@ A wxapp music player 一个微信小程序的音乐播放器
 ![播放器首页: 推荐页面](https://github.com/zyb718116577/wxmusic/blob/master/static/screenshot/index.png);
 #### 2.歌手列表页面
 ![歌手列表页面](https://github.com/zyb718116577/wxmusic/blob/master/static/screenshot/singer-1.png);
+![歌手详情页面](https://github.com/zyb718116577/wxmusic/blob/master/static/screenshot/singer-2.png);
