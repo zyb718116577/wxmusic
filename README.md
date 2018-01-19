@@ -1,5 +1,8 @@
 # wxmusic
-A wxapp music player 一个微信小程序的音乐播放器
+A wxapp music player 一个微信小程序的音乐播放器  现已上线微信小程序  可以搜索"ChickenMusic音乐播放器"查找本小程序
+
+# 待开发/正在开发
+搜索页面正在开发中！！！
 
 # 使用方法
 
