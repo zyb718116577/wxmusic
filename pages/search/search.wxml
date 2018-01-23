@@ -1,0 +1,52 @@
+<view class="search-page">
+  <view class="search-wrapper">
+    <input class="search" placeholder="输入歌手名、歌曲名搜索"
+           placeholder-style="color: #ffcd32;" auto-focus
+           placeholder-class="placeholder"
+           confirm-type="search"
+           bindconfirm="searchAction"
+           bindinput="searchAction"/>
+    <view class="button">搜索</view>
+  </view>
+  <view class="main">
+    <view class="hot-wrapper">
+      <view class="title">热门搜索: </view>
+      <view class="hot-details">
+        <view class="item" wx:for="{{hotSearch}}" wx:key="{{index}}"
+              bindtap="searchAction" data-txt="{{item.k}}">{{item.k}}</view>
+      </view>
+    </view>
+    <view class="histroy">
+      <view class="title">历史搜索: </view>
+      <scroll-view class="histroy-wrapper" scroll-y>
+        <view class="item" wx:for="{{histroySearch}}" wx:key="{{index}}"
+              bindtap="searchAction" data-txt="{{item}}">
+          <view class="txt">{{item}}</view>
+          <view class="x" catchtap="deleteHistroySearch" data-txt="{{item}}">X</view>
+        </view>
+      </scroll-view>
+      <view class="clear" catchtap="deleteHistroySearch" wx:if="{{histroySearch.length>0}}">
+        <i class="icon-clear"></i>
+        清空搜搜历史
+      </view>
+    </view>
+  </view>
+  <scroll-view scroll-y class="search-result-wrapper" wx:if="{{result}}">
+    <view class="singer-wrapper">
+      <view class="item" wx:for="{{singers}}"
+            wx:key="{{index}}"
+            data-name="{{item.name}}"
+            data-id="{{item.mid}}"
+            bindtap="goSinger">
+        <image class="image" src="{{item.pic}}"/>
+        {{item.name}}
+      </view>
+    </view>
+    <view class="song-wrapper">
+      <view class="item" wx:for="{{songs}}" data-mid="{{item.mid}}"
+            bindtap="selectSong">
+        {{item.name}} - {{item.singer}}
+      </view>
+    </view>
+  </scroll-view>
+</view>

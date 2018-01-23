@@ -22,13 +22,12 @@
   margin-top: 200px;
 }
 .recommend-list {
-  height: 130rpx;
-  line-height: 130rpx;
+  line-height: 100rpx;
   text-align: center;
   font-size: 28rpx;
   color: #ffcd32;
 }
-.item {
+.recommend-list .item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,6 +82,7 @@
 .search-wrapper .search {
   border-radius: 5px;
   border: 1px solid #333;
+  font-size: 12px;
 }
 .placeholder {
   font-size: 12px;
@@ -92,4 +92,65 @@
   position: absolute;
   right: 40rpx;
   top: 20rpx;
+}
+
+.rank .toplist {
+  height: 100%;
+  overflow: hidden;
+}
+.hot-list .list-title {
+  height: 65px;
+  line-height: 65px;
+  text-align: center;
+  font-size: 14px;
+  color: #ffcd32;
+  text-align: center;
+  width: 100%;
+}
+.rank .toplist .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 20px;
+  padding-top: 20px;
+  height: 100px;
+}
+.rank .toplist .item .icon image {
+  width: 200rpx;
+  height: 200rpx;
+}
+.rank .toplist .item .icon {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+  padding-right: 0;
+}
+.rank .toplist .item .songlist {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 20px;
+  height: 100px;
+  overflow: hidden;
+  background: #333;
+  color: rgba(255,255,255,0.3);
+  font-size: 12px;
+}
+.rank .toplist .item .songlist .song {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 26px;
 }

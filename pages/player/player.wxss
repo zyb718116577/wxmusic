@@ -186,7 +186,7 @@
 }
 
 .playlist-wrapper .item .name {
-    max-width:300rpx;
+    max-width:350rpx;
     overflow:hidden;
     white-space:nowrap;
     text-overflow:ellipsis;
@@ -198,7 +198,7 @@
     color: rgba(255,255,255,.5);
 }
 .playlist-wrapper .item .singer {
-    max-width:150rpx;
+    max-width:200rpx;
     overflow:hidden;
     white-space:nowrap;
     text-overflow:ellipsis;

@@ -9,25 +9,55 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    is_modal_Hidden:false,
-    is_modal_Msg:'我是一个自定义组件',
+    is_modal_Hidden: false,
+    is_modal_Msg: '我是一个自定义组件',
     slider: [],
-    list: []
+    list: [],
+    rankTitle: [{
+      id: 4,
+      name: '流行榜'
+    }, {
+      id: 6,
+      name: '港台'
+    }, {
+      id: 3,
+      name: '欧美'
+    }, {
+      id: 16,
+      name: '韩国'
+    }, {
+      id: 17,
+      name: '日本'
+    }, {
+      id: 26,
+      name: '热歌'
+    }, {
+      id: 27,
+      name: '新歌'
+    }, {
+      id: 28,
+      name: '网络歌曲'
+    }, {
+      id: 32,
+      name: '音乐人'
+    }, {
+      id: 36,
+      name: 'K歌金曲'
+    }],
+    currentRankIndex: 0
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
   onLoad: function () {
     this.getRecommenData()
+    this._getRankData()
   },
   getRecommenData: function () {
     const _that = this
-    wx.showLoading({
-      title: '加载中',
-    })
     wx.request({
       url: "https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&platform=h5&uin=0&needNewCode=1&jsonpCallback=callback",
       data: {
@@ -53,7 +83,7 @@ Page({
       }
     })
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
@@ -71,6 +101,42 @@ Page({
     })
   },
   toSearch: function (e) {
-    console.log(e)
+    wx.navigateTo({
+      url: '/pages/search/search'
+    })
+  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '一个高颜值的音乐播放器。',
+      path: 'pages/index/index',
+      success: function (res) {
+        // 转发成功
+        console.log('分享成功')
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log('分享失败')
+      }
+    }
+  },
+  _selectItemRank: function (event) {
+    const data = event.currentTarget.dataset.data
+    app.globalData.topId = data.id
+    wx.navigateTo({
+      url: '/pages/top-list/top-list'
+    })
+  },
+  _getRankData: function () {
+    api.getTopList().then((res) => {
+      var res1 = res.data.replace('jp1(', '')
+      var res2 = JSON.parse(res1.substring(0, res1.length - 1))
+      this.setData({
+        topList: res2.data.topList
+      })
+    })
   }
 })

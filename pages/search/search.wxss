@@ -1,0 +1,102 @@
+.search-page {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    background: #222;
+}
+.search-wrapper {
+    padding: 10rpx 30rpx;
+    position: relative;
+    display: flex;
+}
+.search-wrapper .search {
+    border-radius: 5px;
+    border: 1px solid #333;
+    flex: 1;
+}
+.search-wrapper .button {
+    width: 100rpx;
+    height: 70rpx;
+    font-size: 12px;
+    line-height: 60rpx;
+    text-align: center;
+    flex: 0 0 100rpx;
+    color:#ffcd32;
+}
+.placeholder {
+    font-size: 12px;
+    text-align: center;
+}
+.main {
+    padding: 0 30rpx;
+}
+.hot-details {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 100px;
+    overflow: scroll;
+}
+.hot-details .item{
+    padding: 6rpx 20rpx;
+    border: 1px solid #ffcd32;
+    margin-right: 20rpx;
+    border-radius: 20rpx;
+    margin-top: 10rpx;
+}
+.histroy {
+    margin-top: 30rpx;
+}
+.histroy .title {
+    padding: 10rpx 0;
+}
+.histroy-wrapper{
+    height: 700rpx;
+}
+.histroy-wrapper .item{
+    display: flex;
+    padding: 20rpx 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.histroy-wrapper .item .txt{
+    flex: 1;
+    text-indent: 40rpx;
+}
+.histroy-wrapper .item .x{
+    flex: 0 0 30rpx;
+    padding: 0 20rpx;
+}
+.histroy .clear {
+    width: 250rpx;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20rpx;
+    color: #ffcd32;
+}
+.search-result-wrapper {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 95rpx;
+    background: #222;
+    padding: 0 50rpx;
+    font-size: 13px;
+    color:rgba(255,255,255,0.5);
+}
+.search-result-wrapper .singer-wrapper .item{
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    padding: 10rpx 0;
+}
+.search-result-wrapper .singer-wrapper .image{
+    height: 90rpx;
+    width: 90rpx;
+    border-radius: 100%;
+    margin-right: 30rpx;
+}
+.search-result-wrapper .song-wrapper .item {
+    height: 70rpx;
+    line-height: 70rpx;
+}

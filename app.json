@@ -5,12 +5,14 @@
     "pages/singer/singer",
     "pages/singer-detail/singer-detail",
     "pages/player/player",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/search/search",
+    "pages/top-list/top-list"
   ],
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#222",
-    "navigationBarTitleText": "Chicken Music",
+    "navigationBarTitleText": "乐听Music",
     "navigationBarTextStyle":"white"
   },
   "tabBar": {

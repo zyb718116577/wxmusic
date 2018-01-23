@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "loading": "../components/loading/loading",
+    "music-list": "../components/music-list/music-list"
+  }
+}

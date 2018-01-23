@@ -12,7 +12,7 @@
   <view class="bg-layer" ref="layer" style="{{translate}}"></view>
   <view class="scroll-wrapper">
     <scroll-view class="list" id="musiclist" bindscroll="scroll"
-                 style="top:{{top}}px" scroll-y >
+                 style="top:{{top}}px" scroll-y bindscrolltolower="getMoreSongs">
       <view class="song-list-wrapper">
         <song-list select="selectItem" songs="{{songs}}"></song-list>
       </view>

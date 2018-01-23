@@ -49,5 +49,6 @@ function getLyric(musicid) {
 
 module.exports = {
   createSong: createSong,
-  getLyric: getLyric
+  getLyric: getLyric,
+  filterSinger: filterSinger
 }

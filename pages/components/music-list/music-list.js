@@ -8,9 +8,20 @@ Component({
   properties: {
     title: {
       type: String,
-      value: 'Chicken Music'
+      value: 'Chicken Music',
+      observer: function (newVal) {
+        this._setTitle(newVal)
+      }
     },
-    image: String,
+    image: {
+      type:String,
+      value: '',
+      observer: function (newVal) {
+        this.setData({
+          bgStyle: `background-image:url(${newVal})`
+        })
+      }
+    },
     songs: {
       type: Array,
       value: []
@@ -19,13 +30,11 @@ Component({
   ready: function () {
     this.setSonglistTop()
     this._setTitle(this.properties.title)
-
+    console.log(this.properties.title)
     // 动态设置歌手头像背景图
     this.setData({
       bgStyle: `background-image:url(${this.properties.image})`
     })
-
-    console.log(this.properties.songs)
   },
   methods: {
     /*针对不同手机设置songlist的top值*/
@@ -74,10 +83,13 @@ Component({
     randomPlayall: function () {
       app.currentIndex = util.randomNum(this.properties.songs.length)
       app.songlist = this.properties.songs
-      console.log(util.randomNum(this.properties.songs.length))
       wx.switchTab({
         url: '/pages/player/player'
       })
+    },
+    /*向父组件推送滚动到底部的事件*/
+    getMoreSongs: function () {
+      this.triggerEvent('myevent', this.properties.songs.length)
     }
   }
 })

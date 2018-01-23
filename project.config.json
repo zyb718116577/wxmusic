@@ -42,6 +42,12 @@
 					"name": "进入我的",
 					"pathName": "pages/my/my",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "进入搜索页面",
+					"pathName": "pages/search/search",
+					"query": ""
 				}
 			]
 		}

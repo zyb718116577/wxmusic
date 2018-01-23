@@ -42,6 +42,7 @@ Page({
       currentIndex: app.currentIndex
     })
 
+    console.log(currentSong)
     this._getPlayUrl(currentSong.mid)
     this._getLyric(currentSong)
   },
@@ -65,6 +66,8 @@ Page({
 
   // 获取播放地址
   _getPlayUrl: function (songmidid) {
+    console.log(songmidid)
+    //songmidid = '002MOW3w0vbJHf'
     const _this = this
     wx.request({
       url: `https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&loginUin=0&platform=yqq&needNewCode=0&cid=205361747&uin=0&filename=C400${songmidid}.m4a&guid=3913883408&songmid=${songmidid}&callback=callback`,
@@ -123,8 +126,7 @@ Page({
     })
     // 监听音乐停止。
     wx.onBackgroundAudioStop(() => {
-      app.currentIndex++
-      this._init()
+      this.next()
     })
     // 监听播放拿取播放进度
     const manage = wx.getBackgroundAudioManager()
@@ -153,7 +155,6 @@ Page({
 
   // 获取处理歌词
   _getLyricAction: function (currentSong) {
-    console.log('获取歌词')
     song.getLyric(currentSong.musicId).then((res) => {
       if (res.data.showapi_res_body.ret_code == 0) {
         const lyric = this._normalizeLyric(res.data.showapi_res_body.lyric)
@@ -216,6 +217,7 @@ Page({
   },
   next: function () {
     if ((app.currentIndex + 1) == this.data.songslist.length) {
+      console.log('next')
       app.currentIndex = 0
       this._init()
       return
@@ -236,7 +238,7 @@ Page({
     })
     let timer = setInterval(() => {
       if (this.data.currentLyric) {
-        this.data.currentLyric.togglePlay()
+        this.data.currentLyric.togglePlay && this.data.currentLyric.togglePlay()
         clearInterval(timer)
       }
     }, 20)
@@ -253,9 +255,6 @@ Page({
     this.setData({
       translateCls: 'downtranslate'
     })
-  },
-  end: function () {
-    console.log(2)
   },
   playthis: function (e) {
     const index = e.currentTarget.dataset.index
