@@ -14,7 +14,7 @@
         <view>
           <view bindtap="_selectItemRank" data-data="{{item}}" class="item" wx:for="{{topList}}">
             <view class="icon">
-              <image width="100" height="100" src="{{item.picUrl}}"/>
+              <image lazy-load width="100" height="100" src="{{item.picUrl}}"/>
             </view>
             <view class="songlist">
               <view class="song" wx:for="{{item.songList}}">
@@ -38,7 +38,7 @@
             data-id="{{item.id}}"
             data-title="{{item.songListDesc}}">
         <view class="icon">
-          <image src="{{item.picUrl}}" class="image"/>
+          <image lazy-load src="{{item.picUrl}}" class="image"/>
         </view>
         <view class="text">
           <view style="margin-bottom: 20rpx">

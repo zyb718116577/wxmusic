@@ -2,5 +2,5 @@
   "usingComponents": {
     "list-view": "../components/list-view/list-view"
   },
-  "navigationBarTitleText": "Chicken Music-歌手"
+  "navigationBarTitleText": "歌手"
 }

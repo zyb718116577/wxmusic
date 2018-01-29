@@ -26,6 +26,9 @@
                     wx:for="{{currentLyric.lines}}">{{item.txt}}
               </view>
             </view>
+            <view wx:if="{{!currentLyric}}">
+              <view class="text current">暂无歌词</view>
+            </view>
           </scroll-view>
         </swiper-item>
       </swiper>
@@ -42,7 +45,8 @@
         </view>
         <view class="operators">
           <view class="icon i-left">
-            <i class="icon-sequence"></i>
+            <i bindtap="changeMod"
+               class="{{playMod==1? 'icon-sequence':''}}{{playMod==2? ' icon-random':''}}{{playMod==3?' icon-loop':''}}"></i>
           </view>
           <view class="icon i-left">
             <i class="icon-prev" bindtap="prev"></i>

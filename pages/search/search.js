@@ -82,7 +82,7 @@ Page({
       console.log(e)
     }
     this.setData({
-      histroySearch: histroy
+      histroySearch: histroy.reverse()
     })
   },
   deleteHistroySearch: function (event) {
