@@ -156,7 +156,7 @@ Page({
 
   // 获取处理歌词
   _getLyricAction: function (currentSong) {
-    song.getLyric(currentSong.musicId).then((res) => {
+    song.getLyric(currentSong.mid).then((res) => {
       if (res.data.showapi_res_body.ret_code == 0) {
         const lyric = this._normalizeLyric(res.data.showapi_res_body.lyric)
         const currentLyric = new Lyric(lyric)
