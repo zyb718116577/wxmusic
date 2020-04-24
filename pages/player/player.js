@@ -18,11 +18,15 @@ Page({
     currentSong: null,
     dotsArray: new Array(2),
     currentDot: 0,
-    playMod: SEQUENCE_MODE
+    playMod: SEQUENCE_MODE,
+    uid: ''
   },
 
   onShow: function () {
     this._init()
+    this.setData({
+      uid: this.getUid()
+    })
   },
 
   //初始化
@@ -62,38 +66,62 @@ Page({
   // 获取播放地址
   _getPlayUrl: function (songmidid) {
     const _this = this
+    console.log(_this.getUid())
     wx.request({
-      url: `https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&loginUin=0&platform=yqq&needNewCode=0&cid=205361747&uin=0&filename=C400${songmidid}.m4a&guid=3913883408&songmid=${songmidid}&callback=callback`,
+      url: `http://ustbhuangyi.com/music/api/getPurlUrl`,
+      method: 'post',
+      header: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
       data: {
-        g_tk: 5381,
-        inCharset: 'utf-8',
-        outCharset: 'utf-8',
-        notice: 0,
-        format: 'jsonp',
-        hostUin: 0,
-        loginUin: 0,
-        platform: 'yqq',
-        needNewCode: 0,
-        cid: 205361747,
-        uin: 0,
-        filename: `C400${songmidid}.m4a`,
-        guid: 3913883408,
-        songmid: songmidid,
-        callback: 'callback',
+        comm: {
+          format: "json",
+          g_tk: 5381,
+          inCharset: "utf-8",
+          needNewCode: 1,
+          notice: 0,
+          outCharset: "utf-8",
+          platform: "h5",
+          uin: 0,
+        },
+        'req_0': {
+          method: "CgiGetVkey",
+          module: "vkey.GetVkeyServer",
+          param: {
+            guid: _this.getUid(),
+            platform: "23",
+            loginflag: 0,
+            songmid: [songmidid],
+            songtype: [0],
+            uin: '0'
+          }
+        }
       },
       success: function (res) {
-        var res1 = res.data.replace("callback(", "")
-        var res2 = JSON.parse(res1.substring(0, res1.length - 1))
-        const playUrl = `http://dl.stream.qqmusic.qq.com/${res2.data.items[0].filename}?vkey=${res2.data.items[0].vkey}&guid=3913883408&uin=0&fromtag=66`
-        _this._getBackPlayfileName().then((nowPlay) => {
+        console.log(res.data.req_0.data.midurlinfo[0].purl)
+        _this._createAudio(res.data.req_0.data.midurlinfo[0].purl)
+        /*_this._getBackPlayfileName().then((nowPlay) => {
           if (!(res2.data.items[0].filename === nowPlay.ret)) {
             _this._createAudio(playUrl)
           }
-        }).catch((err) => {
-          _this._createAudio(playUrl)
-        })
+        }).catch((err) => {*/
+         /// _this._createAudio(playUrl)
+        //})
       }
     })
+  },
+
+  getUid () {
+    let _uid = JSON.parse(JSON.stringify(this.data.uid))
+    if (_uid) {
+      return _uid
+    }
+    if (!_uid) {
+      const t = (new Date()).getUTCMilliseconds()
+      _uid = '' + Math.round(2147483647 * Math.random()) * t % 1e10
+    }
+    return _uid
   },
 
   // 创建播放器
@@ -241,9 +269,9 @@ Page({
    */
   getNextIndex: function (nextFlag) {
     let ret,
-      currentIndex = app.currentIndex,
-      mod = this.data.playMod,
-      len = this.data.songslist.length
+        currentIndex = app.currentIndex,
+        mod = this.data.playMod,
+        len = this.data.songslist.length
     if (mod === RANDOM_MOD) {
       ret = util.randomNum(len)
     } else {

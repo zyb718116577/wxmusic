@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs",
     "pages/singer/singer",
@@ -9,11 +9,11 @@
     "pages/search/search",
     "pages/top-list/top-list"
   ],
-  "window":{
-    "backgroundTextStyle":"dark",
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#222",
     "navigationBarTitleText": "乐听Music",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#919191",
@@ -26,22 +26,26 @@
         "text": "推荐",
         "iconPath": "static/image/home-1.png",
         "selectedIconPath": "static/image/home-2.png"
-      },{
+      },
+      {
         "pagePath": "pages/player/player",
         "text": "正在播放",
         "iconPath": "static/image/rank-1.png",
         "selectedIconPath": "static/image/rank-2.png"
-      },{
+      },
+      {
         "pagePath": "pages/singer/singer",
         "text": "音乐厅",
         "iconPath": "static/image/singer-1.png",
         "selectedIconPath": "static/image/singer-2.png"
-      },{
+      },
+      {
         "pagePath": "pages/my/my",
         "text": "我",
         "iconPath": "static/image/my.png",
         "selectedIconPath": "static/image/my-1.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
