@@ -66,12 +66,19 @@ Page({
   // 获取播放地址
   _getPlayUrl: function (songmidid) {
     const _this = this
-    console.log(_this.getUid())
     wx.request({
+      url: `https://u.y.qq.com/cgi-bin/musicu.fcg?format=json&data=%7B%22req_0%22%3A%7B%22module%22%3A%22vkey.GetVkeyServer%22%2C%22method%22%3A%22CgiGetVkey%22%2C%22param%22%3A%7B%22guid%22%3A%22358840384%22%2C%22songmid%22%3A%5B%22${songmidid}%22%5D%2C%22songtype%22%3A%5B0%5D%2C%22uin%22%3A%221443481947%22%2C%22loginflag%22%3A1%2C%22platform%22%3A%2220%22%7D%7D%2C%22comm%22%3A%7B%22uin%22%3A%2218585073516%22%2C%22format%22%3A%22json%22%2C%22ct%22%3A24%2C%22cv%22%3A0%7D%7D`,
+      method: 'get',
+      success: function (res,statusCode,header,cookies,profile) {
+        console.log(res.data.req_0.data.sip[0] + res.data.req_0.data.midurlinfo[0].purl)
+        _this._createAudio(res.data.req_0.data.sip[0] + res.data.req_0.data.midurlinfo[0].purl)
+      }
+    })
+    /*wx.request({
       url: `http://ustbhuangyi.com/music/api/getPurlUrl`,
       method: 'post',
       header: {
-        Accept: 'application/json, text/plain, */*',
+        Accept: 'application/json, text/plain, *!/!*',
         'Content-Type': 'application/json;charset=UTF-8'
       },
       data: {
@@ -98,18 +105,19 @@ Page({
           }
         }
       },
-      success: function (res) {
+      success: function (res,statusCode,header,cookies,profile) {
         console.log(res.data.req_0.data.midurlinfo[0].purl)
+        console.log(res,statusCode,header,cookies,profile)
         _this._createAudio(res.data.req_0.data.midurlinfo[0].purl)
-        /*_this._getBackPlayfileName().then((nowPlay) => {
+        /!*_this._getBackPlayfileName().then((nowPlay) => {
           if (!(res2.data.items[0].filename === nowPlay.ret)) {
             _this._createAudio(playUrl)
           }
-        }).catch((err) => {*/
+        }).catch((err) => {*!/
          /// _this._createAudio(playUrl)
         //})
       }
-    })
+    })*/
   },
 
   getUid () {
