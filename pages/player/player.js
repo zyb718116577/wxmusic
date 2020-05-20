@@ -70,54 +70,17 @@ Page({
       url: `https://u.y.qq.com/cgi-bin/musicu.fcg?format=json&data=%7B%22req_0%22%3A%7B%22module%22%3A%22vkey.GetVkeyServer%22%2C%22method%22%3A%22CgiGetVkey%22%2C%22param%22%3A%7B%22guid%22%3A%22358840384%22%2C%22songmid%22%3A%5B%22${songmidid}%22%5D%2C%22songtype%22%3A%5B0%5D%2C%22uin%22%3A%221443481947%22%2C%22loginflag%22%3A1%2C%22platform%22%3A%2220%22%7D%7D%2C%22comm%22%3A%7B%22uin%22%3A%2218585073516%22%2C%22format%22%3A%22json%22%2C%22ct%22%3A24%2C%22cv%22%3A0%7D%7D`,
       method: 'get',
       success: function (res,statusCode,header,cookies,profile) {
-        console.log(res.data.req_0.data.sip[0] + res.data.req_0.data.midurlinfo[0].purl)
-        _this._createAudio(res.data.req_0.data.sip[0] + res.data.req_0.data.midurlinfo[0].purl)
+        if (res.data.req_0.data.midurlinfo[0].purl) {
+          _this._createAudio(res.data.req_0.data.sip[0] + res.data.req_0.data.midurlinfo[0].purl)
+        } else {
+          wx.showToast({
+            title: '本歌曲暂时不能播放。请切换下一首',
+            icon: 'none'
+          })
+          _this._createAudio(res.data.req_0.data.sip[0] + res.data.req_0.data.midurlinfo[0].filename)
+        }
       }
     })
-    /*wx.request({
-      url: `http://ustbhuangyi.com/music/api/getPurlUrl`,
-      method: 'post',
-      header: {
-        Accept: 'application/json, text/plain, *!/!*',
-        'Content-Type': 'application/json;charset=UTF-8'
-      },
-      data: {
-        comm: {
-          format: "json",
-          g_tk: 5381,
-          inCharset: "utf-8",
-          needNewCode: 1,
-          notice: 0,
-          outCharset: "utf-8",
-          platform: "h5",
-          uin: 0,
-        },
-        'req_0': {
-          method: "CgiGetVkey",
-          module: "vkey.GetVkeyServer",
-          param: {
-            guid: _this.getUid(),
-            platform: "23",
-            loginflag: 0,
-            songmid: [songmidid],
-            songtype: [0],
-            uin: '0'
-          }
-        }
-      },
-      success: function (res,statusCode,header,cookies,profile) {
-        console.log(res.data.req_0.data.midurlinfo[0].purl)
-        console.log(res,statusCode,header,cookies,profile)
-        _this._createAudio(res.data.req_0.data.midurlinfo[0].purl)
-        /!*_this._getBackPlayfileName().then((nowPlay) => {
-          if (!(res2.data.items[0].filename === nowPlay.ret)) {
-            _this._createAudio(playUrl)
-          }
-        }).catch((err) => {*!/
-         /// _this._createAudio(playUrl)
-        //})
-      }
-    })*/
   },
 
   getUid () {
